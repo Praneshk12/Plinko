@@ -49,17 +49,7 @@ for(var k = 90;k<=400;k=k+50) {
 plinkos.push(new Plinko(k,375));
 }
 
-
-/*for (var j = 75; j <=width; j=j+50) 
-    {
-    
-       plinkos.push(new Plinko(j,75));
-    }*/
-
-    /*bar2 = new Ground((1150+1350)/2,698,200,20);
-    bar3 = new Ground(1350,650,15,100);*/
-    
-    
+      
 }
 
  
@@ -87,10 +77,7 @@ function draw() {
     border3.display();
     border4.display();
     
-   /* dBar1.display();
-    dBar2.display();
-    dBar3.display();
-    dBar4.display();*/
+   
     ground.display();
     if ( gameState =="END") {
     
@@ -102,27 +89,22 @@ function draw() {
        plinkos[k].display();
     }
 
-    if(particle!=null)
-    {
+    if(particle!=null) {
        particle.display();
         
-        if (particle.body.position.y>700)
-        {
-              if (particle.body.position.x < 300) 
-              {
-                  score=score+500;      
-                  particle=null;
-                  if ( count>= 5) gameState ="END";                          
-              }
+      if(particle.body.position.y>700) {
+        if(particle.body.position.x < 300) {
+            score=score+500;      
+            particle=null;
+            if ( count>= 5) gameState ="END";                          
+        }
 
 
-              else if (particle.body.position.x < 600 && particle.body.position.x > 301 ) 
-              {
-                    score = score + 100;
-                    particle=null;
-                    if ( count>= 5) gameState ="END";
-
-              }
+      else if (particle.body.position.x < 600 && particle.body.position.x > 301 ) {
+          score = score + 100;
+          particle=null;
+         if ( count>= 5) gameState ="END";
+     }
               else if (particle.body.position.x < 900 && particle.body.position.x > 601 )
               {
                     score = score + 200;
@@ -133,32 +115,20 @@ function draw() {
               
         }
     }
-    
- //   box1.display();
-   
-    
   
- for (var i = 0; i < divisions.length; i++) {
-     
+  
+ for (var i = 0; i < divisions.length; i++) { 
     divisions[i].display();
+
   }
   
-    
-    
-     //   divisions.display();
-   // divisions.display();
-    /*bar1.display();
-    bar2.display();
-    bar3.display(); */
-   
-    
-   // particles.display();
+  
 
 }
 function mousePressed() {
     if(gameState !== "END") {
-        count++;
-    particle = new Particle(mouseX, 50, 10, 10);
+      count++;
+      particle = new Particle(mouseX, 50, 10, 10);
     }
 }
 
